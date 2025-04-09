@@ -21,6 +21,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,9 +30,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun RegisterScreen() {
+fun RegisterScreen(navcontroller: NavController) {
 
     Scaffold { innerPading ->
         Column(modifier = Modifier.padding(innerPading).fillMaxSize().padding(horizontal = 32.dp), horizontalAlignment = Alignment.CenterHorizontally) {
@@ -114,7 +116,16 @@ fun RegisterScreen() {
                     text = "Registrarse",
                     fontSize = 16.sp
                 )
+                TextButton(onClick = {
+                    navcontroller.navigate("Login")
+                }) {
+                    Text(
+                        text = "Si tengo una cuenta",
+                        color = Color(0xFFFF9900)
+                    )
+                }
             }
+
 
         }
     }
@@ -124,6 +135,6 @@ fun RegisterScreen() {
 @Preview
 @Composable
 fun PreviewRegisterScreen() {
-    RegisterScreen()
+//    RegisterScreen()
 
 }
