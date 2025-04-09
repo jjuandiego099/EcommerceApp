@@ -25,13 +25,15 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 val startDestiation = "Login"
 
+
                 NavHost(
                     navController = navController,
                     startDestination = startDestiation,
-                    modifier = Modifier
+                    modifier = Modifier.fillMaxSize()
                 ) {
-                    composable("Register") { LoginScreen(navController) }
-                    composable("Login") { RegisterScreen(navController) }
+
+                    composable("Login") { LoginScreen(navController) }
+                    composable("Register") { RegisterScreen(navController) }
                     composable("HomeScreen") { HomeScreen(navController) }
                 }
             }

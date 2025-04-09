@@ -31,12 +31,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun RegisterScreen(navcontroller: NavController) {
 
@@ -134,19 +136,22 @@ fun RegisterScreen(navcontroller: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp)
+
             ) {
                 Text(
                     text = "Registrarse",
-                    fontSize = 16.sp
+                    fontSize = 16.sp,
+                    textAlign = TextAlign.Center
                 )
-                TextButton(onClick = {
-                    navcontroller.navigate("Login")
-                }) {
-                    Text(
-                        text = "Si tengo una cuenta",
-                        color = Color(0xFFFF9900)
-                    )
-                }
+
+            }
+            TextButton(onClick = {
+                navcontroller.popBackStack()
+            }) {
+                Text(
+                    text = "Si tengo una cuenta",
+                    color = Color(0xFFFF9900)
+                )
             }
 
 
@@ -155,9 +160,4 @@ fun RegisterScreen(navcontroller: NavController) {
 
 }
 
-@Preview
-@Composable
-fun PreviewRegisterScreen() {
-//    RegisterScreen()
 
-}
