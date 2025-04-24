@@ -85,7 +85,9 @@ fun LoginScreen(navcontroller: NavController) {
             )
             Spacer(modifier = Modifier.height(24.dp))
             Button(
-                onClick = {},
+                onClick = {
+                    navcontroller.navigate("HomeScreen")
+                },
                 colors = ButtonDefaults.buttonColors
                     (containerColor = Color(0xFFFF9900)),
                 modifier = Modifier
