@@ -60,4 +60,7 @@ dependencies {
 
     //navegacion screen
     implementation(libs.androidx.navigation.compose)
+    //imagenes internet
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 }
