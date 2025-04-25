@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ExitToApp
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -61,7 +63,7 @@ fun HomeScreen(navcontroller: NavController? = null) {
                 navigationIcon = {
                     IconButton(onClick = { /* do something */ }) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = Icons.Default.AccountCircle,
                             contentDescription = "Localized description"
                         )
                     }
@@ -69,7 +71,7 @@ fun HomeScreen(navcontroller: NavController? = null) {
                 actions = {
                     IconButton(onClick = { /* do something */ }) {
                         Icon(
-                            imageVector = Icons.Filled.Menu,
+                            imageVector = Icons.AutoMirrored.Filled.ExitToApp,
                             contentDescription = "Localized description"
                         )
                     }
