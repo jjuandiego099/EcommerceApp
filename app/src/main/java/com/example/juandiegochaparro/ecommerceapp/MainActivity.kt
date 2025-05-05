@@ -15,6 +15,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.juandiegochaparro.ecommerceapp.ui.theme.EcommerceAppTheme
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +25,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EcommerceAppTheme {
+                var auth= Firebase.auth
+                var currentUser= auth.currentUser
+                var startDestiation = "LoginScreen"
+                if(currentUser !=null){
+                    startDestiation = "HomeScreen"
+                }else{
+
+                    startDestiation="loginScreen"
+                }
                 val navController = rememberNavController()
-                val startDestiation = "Login"
+
 
 
                 NavHost(
@@ -32,8 +44,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize()
                 ) {
 
-                    composable("Login") { LoginScreen(navController) }
-                    composable("Register") { RegisterScreen(navController) }
+                    composable("LoginScreen") { LoginScreen(navController) }
+                    composable("RegisterScreen") { RegisterScreen(navController) }
                     composable("HomeScreen") { HomeScreen(navController) }
                 }
             }

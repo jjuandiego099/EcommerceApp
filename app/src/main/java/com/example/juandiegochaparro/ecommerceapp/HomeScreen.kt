@@ -36,13 +36,22 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil3.compose.rememberAsyncImagePainter
 import com.example.juandiegochaparro.ecommerceapp.ui.theme.EcommerceAppTheme
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navcontroller: NavController? = null) {
+fun HomeScreen(navcontroller: NavController) {
+    val auth = Firebase.auth
+    var user = auth.currentUser
+    var correo = "No existe usuario"
+    if (user != null) {
+        correo = user.email.toString()
+    } else {
+        correo = "No existe usuario"
 
-
+    }
     Scaffold(
         topBar = {
             val scrollBehavior =
@@ -55,7 +64,7 @@ fun HomeScreen(navcontroller: NavController? = null) {
                 ),
                 title = {
                     Text(
-                        "Medium Top App Bar",
+                        "$correo",
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
@@ -69,7 +78,12 @@ fun HomeScreen(navcontroller: NavController? = null) {
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* do something */ }) {
+                    IconButton(onClick = {
+                        auth.signOut()
+                        navcontroller.navigate("LoginScreen") {
+                            popUpTo(0)
+                        }
+                    }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ExitToApp,
                             contentDescription = "Localized description"
@@ -98,7 +112,7 @@ fun HomeScreen(navcontroller: NavController? = null) {
                 contentPadding = PaddingValues(horizontal = 16.dp)
             ) {
 
-                for (url in listaUrls){
+                for (url in listaUrls) {
                     item { CardPromo(url) }
                 }
 
@@ -128,13 +142,5 @@ fun CardPromo(url: String) {
 
 }
 
-@Preview
-@Composable
-fun PreviewHomeScreen(
 
-) {
-    EcommerceAppTheme {
-        HomeScreen()
-    }
-}
 

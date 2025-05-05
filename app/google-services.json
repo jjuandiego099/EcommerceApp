@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "624754371569",
+    "project_id": "loginfirebase-253b8",
+    "storage_bucket": "loginfirebase-253b8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624754371569:android:621a28408f9e249dff3250",
+        "android_client_info": {
+          "package_name": "com.example.juandiegochaparro.ecommerceapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF7sfHQSg50MY7uSY8HSLPteiBlldGtdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
